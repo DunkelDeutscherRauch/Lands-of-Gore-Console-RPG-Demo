@@ -7,7 +7,7 @@ class Ranger(
 
     var attackOne: IntRange = (15..30)
     var attackTwo: IntRange = (25..50)
-    var attackThree: IntRange = (10..20)
+    var attackThree: IntRange = (15..30)
     var attackFour: IntRange = (15..30)
     var healingItem: IntRange = (0..0)
 
@@ -63,13 +63,17 @@ class Ranger(
                     val chooseEnemy: Int = readln().toInt()
                     println()
                     val choosenEnemy = opponent.elementAt(chooseEnemy - 1)
-                    val damageDoneSingle: Int = allCharSkills.values.elementAt(attack - 1).random()
-                    val damageDoneFinal: Int = damageDoneSingle * 3
+                    val damageDoneSingle1: Int = allCharSkills.values.elementAt(attack - 1).random()
+                    val damageDoneSingle2: Int = allCharSkills.values.elementAt(attack - 1).random()
+                    val damageDoneSingle3: Int = allCharSkills.values.elementAt(attack - 1).random()
+                    val damageDoneFinal: Int = damageDoneSingle1 + damageDoneSingle2 + damageDoneSingle3
                     println(
                         "You attack '${choosenEnemy.name}' with " +
                                 "'${allCharSkills.keys.elementAt(attack - 1)}'!"
                     )
-                    println("'${choosenEnemy.name}' receive $damageDoneSingle damage per Arrow!")
+                    println("'${choosenEnemy.name}' receive $damageDoneSingle1 damage!")
+                    println("'${choosenEnemy.name}' receive $damageDoneSingle2 damage!")
+                    println("'${choosenEnemy.name}' receive $damageDoneSingle3 damage!")
                     println("You hit your enemy with three arrows. So your enemy " +
                             "receive a total damage of $damageDoneFinal!")
                     choosenEnemy.enemyGetsDamage(lostHealth = damageDoneFinal)

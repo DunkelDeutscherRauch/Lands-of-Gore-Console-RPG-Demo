@@ -1,6 +1,6 @@
 open class Hero(var name: String, var healthPoints: Int, var armor: Int = 0, var isCharDead: Boolean = false) {
 
-    open fun attackEnemy(opponent: Enemy) {
+    open fun attackEnemy(opponent: MutableList<Enemy>) {
         println("Placeholder")
     }
 

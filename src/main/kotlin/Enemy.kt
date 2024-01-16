@@ -1,4 +1,4 @@
-open class Enemy(var name: String, var healthPoints: Int, var isEnemyDead: Boolean = false) {
+open class Enemy(var name: String, var healthPoints: Int, var isEnemyDead: Boolean) {
 
     open fun attackHero(opponent: Hero) {
         println("Placeholder")

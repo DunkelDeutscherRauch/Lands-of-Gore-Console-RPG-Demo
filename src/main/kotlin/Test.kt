@@ -1,5 +1,7 @@
 fun main() {
 
+    // !!!Only for testing Stuff!!!
+
     var enemy1 = Minion()
     var enemy2 = Minion("Undead Dude")
     var sorc1 = Enchantress("Wilde Hilde")

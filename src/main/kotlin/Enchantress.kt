@@ -7,9 +7,9 @@ class Enchantress(
 ) : Hero(name, healthPoints, armor, isCharDead) {
 
     var attackOne: IntRange = (1..10)
-    var attackTwo: IntRange = (25..50)
-    var attackThree: IntRange = (35..70)
-    var attackFour: IntRange = (0..0)
+    var attackTwo: IntRange = (35..70)
+    var attackThree: IntRange = (75..150)
+    var attackFour: IntRange = (250..500)
     var defenseSpell: IntRange = (0..0)
     var healingItem: IntRange = (0..0)
 
@@ -46,18 +46,22 @@ class Enchantress(
                     }
                     println()
                     print("Input: ")
-                    var chooseEnemy: Int = readln().toInt()
+                    val chooseEnemy: Int = readln().toInt()
                     println()
-                    var choosenEnemy = opponent.elementAt(chooseEnemy - 1)
+                    val choosenEnemy = opponent.elementAt(chooseEnemy - 1)
                     val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
-                    println("You have attackt '${choosenEnemy.name}' with " +
-                            "'${allCharSkills.keys.elementAt(attack - 1)}'!")
-                    println("'${choosenEnemy.name}' received $damageDone damage!")
+                    println(
+                        "You attack '${choosenEnemy.name}' with " +
+                                "'${allCharSkills.keys.elementAt(attack - 1)}'!"
+                    )
+                    println("'${choosenEnemy.name}' receive $damageDone damage!")
                     choosenEnemy.enemyGetsDamage(lostHealth = damageDone)
                     check = false
                 } else if ((attack >= 4) && (attack <= 6)) {
-                    println("This Skill has no effect yet, please try another one!")
+                    println("\nThis skill has no effect yet, please try another one!")
                     check = false
+                } else {
+                    println("\nWrong input! Try again!")
                 }
             }
         }

@@ -4,7 +4,7 @@ class Minion(name: String = "Undead Druid",
     : Enemy(name, healthPoints, isEnemyDead) {
 
     override fun attackHero(opponent: Hero) {
-        println("${this.name} can not attack yet. So your enemy is harmless. So...please do not hurt ${this.name} again!")
+        println("${this.name} can not attack yet. So your enemy is harmless.\n")
     }
 
 

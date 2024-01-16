@@ -6,9 +6,9 @@ class Ranger(
 ) : Hero(name, healthPoints, armor, isCharDead) {
 
     var attackOne: IntRange = (15..30)
-    var attackTwo: IntRange = (25..50)
+    var attackTwo: IntRange = (35..70)
     var attackThree: IntRange = (15..30)
-    var attackFour: IntRange = (15..30)
+    var attackFour: IntRange = (25..50)
     var healingItem: IntRange = (0..0)
 
     var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(

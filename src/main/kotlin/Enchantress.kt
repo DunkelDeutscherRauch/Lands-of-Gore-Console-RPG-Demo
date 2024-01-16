@@ -7,7 +7,7 @@ class Enchantress(
 ) : Hero(name, healthPoints, armor, isCharDead) {
 
     var attackOne: IntRange = (1..10)
-    var attackTwo: IntRange = (35..70)
+    var attackTwo: IntRange = (50..100)
     var attackThree: IntRange = (75..150)
     var attackFour: IntRange = (250..500)
     var defenseSpell: IntRange = (0..0)

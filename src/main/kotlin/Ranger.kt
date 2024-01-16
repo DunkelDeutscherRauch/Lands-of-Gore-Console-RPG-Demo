@@ -1,5 +1,9 @@
-class Ranger(name: String = "") : Hero(name, healthPoints = 375) {
+class Ranger(name: String = "",
+             healthPoints: Int = 375,
+             armor: Int = 50,
+             isCharDead: Boolean)
+    : Hero(name, healthPoints, armor, isCharDead) {
 
-    override var armor: Int = 50
+
 
 }

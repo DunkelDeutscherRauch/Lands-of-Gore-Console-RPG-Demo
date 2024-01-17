@@ -1,5 +1,7 @@
 open class Hero(var name: String, var healthPoints: Int, var armor: Int = 0, var isCharDead: Boolean) {
 
+    open val maxHealthPoints: Int = healthPoints
+
     open fun attackEnemy(opponent: MutableList<Enemy>) {
         println("Placeholder")
     }
@@ -12,16 +14,9 @@ open class Hero(var name: String, var healthPoints: Int, var armor: Int = 0, var
             println()
             println("'${this.name}' IS DEAD!")
         } else {
-            println("'${this.name}' has ${this.healthPoints} left!")
+            println("'${this.name}' has ${this.healthPoints/this.maxHealthPoints} HP left!")
             println()
         }
     }
-
-
-
-
-
-
-
 
 }

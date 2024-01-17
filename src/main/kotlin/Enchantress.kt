@@ -6,6 +6,8 @@ class Enchantress(
     isCharDead: Boolean = false
 ) : Hero(name, healthPoints, armor, isCharDead) {
 
+    override val maxHealthPoints: Int = healthPoints
+
     var attackOne: IntRange = (1..10)
     var attackTwo: IntRange = (50..100)
     var attackThree: IntRange = (75..150)

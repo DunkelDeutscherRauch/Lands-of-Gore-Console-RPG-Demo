@@ -5,11 +5,13 @@ class Ranger(
     isCharDead: Boolean = false
 ) : Hero(name, healthPoints, armor, isCharDead) {
 
+    override val maxHealthPoints: Int = healthPoints
+
     var attackOne: IntRange = (15..30)
     var attackTwo: IntRange = (35..70)
     var attackThree: IntRange = (15..30)
     var attackFour: IntRange = (25..50)
-    var healingItem: IntRange = (0..0)
+    var healingItem: IntRange = (50..50)
 
     var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(
         "Axe Strike" to attackOne,
@@ -62,7 +64,7 @@ class Ranger(
                     print("Input: ")
                     val chooseEnemy: Int = readln().toInt()
                     println()
-                    val choosenEnemy = opponent.elementAt(chooseEnemy - 1)
+                     val choosenEnemy = opponent.elementAt(chooseEnemy - 1)
                     val damageDoneSingle1: Int = allCharSkills.values.elementAt(attack - 1).random()
                     val damageDoneSingle2: Int = allCharSkills.values.elementAt(attack - 1).random()
                     val damageDoneSingle3: Int = allCharSkills.values.elementAt(attack - 1).random()
@@ -87,9 +89,20 @@ class Ranger(
                     }
                     check = false
                 } else if (attack == 5) {
-                    println("\nThis skill has no effect yet, please try another one!")
+                    val healAmount: Int = allCharSkills.values.elementAt(attack - 1).random()
+                    val newHealthPoints: Int = healthPoints + healAmount
+                    if (newHealthPoints >= maxHealthPoints) {
+                        healthPoints = maxHealthPoints
+                        println("\n'${this.name}' uses an '${allCharSkills.keys.elementAt(attack - 1)}'!")
+                        println("'${this.name}' recives healing equal to ${(maxHealthPoints- newHealthPoints) + healAmount} HP!")
+                        println("'${this.name}' currently has $healthPoints/$maxHealthPoints HP!\n")
+                    } else {
+                        healthPoints += healAmount
+                        println("\n'${this.name}' uses an '${allCharSkills.keys.elementAt(attack - 1)}'!")
+                        println("'${this.name}' recives healing equal to $healAmount HP!")
+                        println("'${this.name}' currently has $healthPoints/$maxHealthPoints HP!\n")
+                    }
                     check = false
-
                 } else {
                     println("\nWrong input! Try again!")
                 }

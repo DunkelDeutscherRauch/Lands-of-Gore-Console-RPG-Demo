@@ -86,8 +86,8 @@ class Ranger(
                         val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
                         println("${i.name} receive $damageDone damage!")
                         i.enemyGetsDamage(lostHealth = damageDone)
+                        check = false
                     }
-                    check = false
                 } else if (attack == 5) {
                     val healAmount: Int = allCharSkills.values.elementAt(attack - 1).random()
                     val newHealthPoints: Int = healthPoints + healAmount
@@ -95,7 +95,7 @@ class Ranger(
                         healthPoints = maxHealthPoints
                         println("\n'${this.name}' uses an '${allCharSkills.keys.elementAt(attack - 1)}'!")
                         println("'${this.name}' receives healing equal to " +
-                                "${(maxHealthPoints- newHealthPoints) + healAmount} HP!")
+                                "${(maxHealthPoints - newHealthPoints) + healAmount} HP!")
                         println("'${this.name}' currently has $healthPoints/$maxHealthPoints HP!\n")
                     } else {
                         healthPoints += healAmount
@@ -106,6 +106,7 @@ class Ranger(
                     check = false
                 } else {
                     println("\nWrong input! Try again!")
+                    println()
                 }
             }
 

@@ -94,12 +94,13 @@ class Ranger(
                     if (newHealthPoints >= maxHealthPoints) {
                         healthPoints = maxHealthPoints
                         println("\n'${this.name}' uses an '${allCharSkills.keys.elementAt(attack - 1)}'!")
-                        println("'${this.name}' recives healing equal to ${(maxHealthPoints- newHealthPoints) + healAmount} HP!")
+                        println("'${this.name}' receives healing equal to " +
+                                "${(maxHealthPoints- newHealthPoints) + healAmount} HP!")
                         println("'${this.name}' currently has $healthPoints/$maxHealthPoints HP!\n")
                     } else {
                         healthPoints += healAmount
                         println("\n'${this.name}' uses an '${allCharSkills.keys.elementAt(attack - 1)}'!")
-                        println("'${this.name}' recives healing equal to $healAmount HP!")
+                        println("'${this.name}' receives healing equal to $healAmount HP!")
                         println("'${this.name}' currently has $healthPoints/$maxHealthPoints HP!\n")
                     }
                     check = false

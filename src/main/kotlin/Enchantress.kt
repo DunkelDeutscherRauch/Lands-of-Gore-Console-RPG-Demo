@@ -19,8 +19,8 @@ class Enchantress(
         "Oak Stuff" to attackOne,
         "Arcane Missiles" to attackTwo,
         "Firebold" to attackThree,
-        "Vanishing Sea of Fire" to attackFour,
-        "Arcane Barrier" to defenseSpell,
+        "Drop of Essence" to attackFour,
+        "Vanishing Sea of Fire" to defenseSpell,
         "Elixir" to healingItem
     )
 

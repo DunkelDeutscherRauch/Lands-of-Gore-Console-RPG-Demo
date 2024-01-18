@@ -12,7 +12,7 @@ class Enchantress(
     private var attackTwo: IntRange = (50..100)
     private var attackThree: IntRange = (75..150)
     private var attackFour: IntRange = (50..100)
-    private var attackFive: IntRange = (750..750)
+    private var attackFive: IntRange = (325..325)
 
 
     var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(

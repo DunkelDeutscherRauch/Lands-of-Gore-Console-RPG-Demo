@@ -11,8 +11,8 @@ class Enchantress(
     var attackOne: IntRange = (1..10)
     var attackTwo: IntRange = (50..100)
     var attackThree: IntRange = (75..150)
-    var attackFour: IntRange = (250..500)
-    var defenseSpell: IntRange = (0..0)
+    var attackFour: IntRange = (50..100)
+    var attackFive: IntRange = (500..750)
     var healingItem: IntRange = (0..0)
 
     var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(
@@ -20,11 +20,11 @@ class Enchantress(
         "Arcane Missiles" to attackTwo,
         "Firebold" to attackThree,
         "Drop of Essence" to attackFour,
-        "Vanishing Sea of Fire" to defenseSpell,
+        "Vanishing Sea of Fire" to attackFive,
         "Elixir" to healingItem
     )
 
-    override fun attackEnemy(opponent: MutableList<Enemy>, hero: MutableList<Hero>) {
+    override fun attackEnemy(opponent: MutableList<Enemy>, hero: MutableList<Hero>,inventory: MutableList<Potion>) {
         var check = true
         while (check) {
             if (!isCharDead) {
@@ -59,15 +59,46 @@ class Enchantress(
                     println("'${choosenEnemy.name}' receive $damageDone damage!")
                     choosenEnemy.enemyGetsDamage(lostHealth = damageDone)
                     check = false
-                } else if ((attack >= 4) && (attack <= 6)) {
-                    println("\nThis skill has no effect yet, please try another one!")
+                } else if (attack == 4) {
+                    println("\nWhich enemy do you want to attack?\n")
+                    for (i in opponent) {
+                        println("Type ${opponent.indexOf(i) + 1} for ${i.name}")
+                    }
+                    println()
+                    print("Input: ")
+                    val chooseEnemy: Int = readln().toInt()
+                    println()
+                    val choosenEnemy = opponent.elementAt(chooseEnemy - 1)
+                    val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
+                    val healAmount: Int = damageDone
+                    println(
+                        "You attack '${choosenEnemy.name}' with " +
+                                "'${allCharSkills.keys.elementAt(attack - 1)}'!"
+                    )
+                    println("'${choosenEnemy.name}' receive $damageDone damage!")
+                    val newHealthPoints: Int = healthPoints + healAmount
+                    if (newHealthPoints >= maxHealthPoints) {
+                        healthPoints = maxHealthPoints
+                        println(
+                            "'${this.name}' receives healing equal to " +
+                                    "${(maxHealthPoints - newHealthPoints) + healAmount} HP!"
+                        )
+                        println("'${this.name}' currently has $healthPoints/$maxHealthPoints HP!\n")
+                    } else {
+                        healthPoints += healAmount
+                        println("'${this.name}' receives healing equal to $healAmount HP!")
+                        println("'${this.name}' currently has $healthPoints/$maxHealthPoints HP!\n")
+                    }
+                    choosenEnemy.enemyGetsDamage(lostHealth = damageDone)
                     check = false
-                } else {
-                    println("\nWrong input! Try again!")
+                } else if ((attack >= 5) && (attack <= 6)) {
+                    println("\nThis skill has no effect yet, please try another one!")
                 }
+            } else {
+                println("\nWrong input! Try again!")
             }
         }
-
     }
 
 }
+

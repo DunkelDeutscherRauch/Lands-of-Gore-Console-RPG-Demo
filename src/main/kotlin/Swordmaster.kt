@@ -20,7 +20,7 @@ class Swordmaster(
         "Rage" to attackFour,
         "Elixir" to healingItem
     )
-
+/*
     override fun attackEnemy(opponent: MutableList<Enemy>, hero: MutableList<Hero>) {
         var check = true
         while (check) {
@@ -75,5 +75,5 @@ class Swordmaster(
             }
         }
 
-
+*/
     }

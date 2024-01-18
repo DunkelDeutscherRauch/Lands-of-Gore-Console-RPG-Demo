@@ -11,17 +11,16 @@ class Ranger(
     var attackTwo: IntRange = (35..70)
     var attackThree: IntRange = (15..30)
     var attackFour: IntRange = (25..50)
-    var healingItem: IntRange = (50..50)
+
 
     var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(
         "Axe Strike" to attackOne,
         "Aimed Shot" to attackTwo,
         "Multishot" to attackThree,
         "Rain of Arrows" to attackFour,
-        "Elixir" to healingItem
     )
 
-    override fun attackEnemy(opponent: MutableList<Enemy>, hero: MutableList<Hero>) {
+    override fun attackEnemy(opponent: MutableList<Enemy>, hero: MutableList<Hero>, inventory: MutableList<Potion>) {
         var check = true
         while (check) {
             if (!isCharDead) {
@@ -31,7 +30,7 @@ class Ranger(
                 println("To attack with '${allCharSkills.keys.elementAt(1)}'       --> Type in 2")
                 println("To attack with '${allCharSkills.keys.elementAt(2)}'        --> Type in 3")
                 println("To attack with '${allCharSkills.keys.elementAt(3)}'   --> Type in 4")
-                println("To use         '${allCharSkills.keys.elementAt(4)}'           --> Type in 5")
+                println("To use         'Inventory'        --> Type in 5")
                 println()
 
                 print("Input: ")
@@ -64,7 +63,7 @@ class Ranger(
                     print("Input: ")
                     val chooseEnemy: Int = readln().toInt()
                     println()
-                     val choosenEnemy = opponent.elementAt(chooseEnemy - 1)
+                    val choosenEnemy = opponent.elementAt(chooseEnemy - 1)
                     val damageDoneSingle1: Int = allCharSkills.values.elementAt(attack - 1).random()
                     val damageDoneSingle2: Int = allCharSkills.values.elementAt(attack - 1).random()
                     val damageDoneSingle3: Int = allCharSkills.values.elementAt(attack - 1).random()
@@ -76,8 +75,10 @@ class Ranger(
                     println("'${choosenEnemy.name}' receive $damageDoneSingle1 damage!")
                     println("'${choosenEnemy.name}' receive $damageDoneSingle2 damage!")
                     println("'${choosenEnemy.name}' receive $damageDoneSingle3 damage!")
-                    println("You hit your enemy with three arrows. So your enemy " +
-                            "receive a total damage of $damageDoneFinal!")
+                    println(
+                        "You hit your enemy with three arrows. So your enemy " +
+                                "receive a total damage of $damageDoneFinal!"
+                    )
                     choosenEnemy.enemyGetsDamage(lostHealth = damageDoneFinal)
                     check = false
                 } else if (attack == 4) {
@@ -89,24 +90,25 @@ class Ranger(
                         check = false
                     }
                 } else if (attack == 5) {
-                    val healAmount: Int = allCharSkills.values.elementAt(attack - 1).random()
-                    val newHealthPoints: Int = healthPoints + healAmount
-                    if (newHealthPoints >= maxHealthPoints) {
-                        healthPoints = maxHealthPoints
-                        println("\n'${this.name}' uses an '${allCharSkills.keys.elementAt(attack - 1)}'!")
-                        println("'${this.name}' receives healing equal to " +
-                                "${(maxHealthPoints - newHealthPoints) + healAmount} HP!")
-                        println("'${this.name}' currently has $healthPoints/$maxHealthPoints HP!\n")
+                    println("\nWhich potion do you want to use?\n")
+                    if (inventory.isNotEmpty()) {
+                        for (i in inventory) {
+                            println("Type ${inventory.indexOf(i) + 1} for ${i.name}")
+                        }
+                        println()
+                        print("Input: ")
+                        val choosePotion: Int = readln().toInt()
+                        println()
+                        val choosenPotion = inventory.elementAt(choosePotion - 1)
+                        choosenPotion.usePotion(this)
+                        inventory.remove(choosenPotion)
+                        check = false
                     } else {
-                        healthPoints += healAmount
-                        println("\n'${this.name}' uses an '${allCharSkills.keys.elementAt(attack - 1)}'!")
-                        println("'${this.name}' receives healing equal to $healAmount HP!")
-                        println("'${this.name}' currently has $healthPoints/$maxHealthPoints HP!\n")
+                        println("The inventory is empty! Choose another skill!\n")
                     }
-                    check = false
                 } else {
-                    println("\nWrong input! Try again!")
-                    println()
+                    println("\nWrong input! Try again!\n")
+
                 }
             }
 

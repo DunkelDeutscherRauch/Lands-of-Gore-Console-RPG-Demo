@@ -1,6 +1,7 @@
-class Potion(val name: String, amount: Int) {
+class Potion(val name: String, amount: Int, var description: String = "Heals $amount HP") {
 
     var amountOfPotion: Int = amount
+
 
     fun usePotion(hero: Hero) {
         println("'${hero.name}' uses an '${this.name}'!")

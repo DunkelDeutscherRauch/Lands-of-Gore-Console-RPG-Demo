@@ -93,7 +93,7 @@ class Ranger(
                     println("\nWhich potion do you want to use?\n")
                     if (inventory.isNotEmpty()) {
                         for (i in inventory) {
-                            println("Type ${inventory.indexOf(i) + 1} for ${i.name}")
+                            println("Type ${inventory.indexOf(i) + 1} for ${i.name} - ${i.description}")
                         }
                         println()
                         print("Input: ")

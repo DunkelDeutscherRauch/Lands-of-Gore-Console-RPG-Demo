@@ -1,18 +1,18 @@
 class Enchantress(
     name: String = "",
     healthPoints: Int = 250,
-    manaPoints: Int = 100,
+    manaPoints: Int = 0,
     armor: Int = 0,
     isCharDead: Boolean = false
 ) : Hero(name, healthPoints, armor, isCharDead) {
 
     override val maxHealthPoints: Int = healthPoints
 
-    var attackOne: IntRange = (1..10)
-    var attackTwo: IntRange = (50..100)
-    var attackThree: IntRange = (75..150)
-    var attackFour: IntRange = (50..100)
-    var attackFive: IntRange = (750..750)
+    private var attackOne: IntRange = (1..10)
+    private var attackTwo: IntRange = (50..100)
+    private var attackThree: IntRange = (75..150)
+    private var attackFour: IntRange = (50..100)
+    private var attackFive: IntRange = (750..750)
 
 
     var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(

@@ -7,10 +7,10 @@ class Swordmaster(
 
     override val maxHealthPoints: Int = healthPoints
 
-    var attackOne: IntRange = (0..0)
-    var attackTwo: IntRange = (0..0)
-    var attackThree: IntRange = (0..0)
-    var attackFour: IntRange = (0..0)
+    private var attackOne: IntRange = (0..0)
+    private var attackTwo: IntRange = (0..0)
+    private var attackThree: IntRange = (0..0)
+    private var attackFour: IntRange = (0..0)
 
 
     var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(

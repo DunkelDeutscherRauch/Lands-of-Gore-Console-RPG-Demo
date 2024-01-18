@@ -13,7 +13,7 @@ class Enchantress(
     var attackThree: IntRange = (75..150)
     var attackFour: IntRange = (50..100)
     var attackFive: IntRange = (500..750)
-    var healingItem: IntRange = (0..0)
+
 
     var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(
         "Oak Stuff" to attackOne,
@@ -21,7 +21,7 @@ class Enchantress(
         "Firebold" to attackThree,
         "Drop of Essence" to attackFour,
         "Vanishing Sea of Fire" to attackFive,
-        "Elixir" to healingItem
+
     )
 
     override fun attackEnemy(opponent: MutableList<Enemy>, hero: MutableList<Hero>,inventory: MutableList<Potion>) {
@@ -33,9 +33,9 @@ class Enchantress(
                 println("To attack with '${allCharSkills.keys.elementAt(0)}'               --> Type in 1")
                 println("To attack with '${allCharSkills.keys.elementAt(1)}'         --> Type in 2")
                 println("To attack with '${allCharSkills.keys.elementAt(2)}'                --> Type in 3")
-                println("To attack with '${allCharSkills.keys.elementAt(3)}'   --> Type in 4")
-                println("To affect      '${allCharSkills.keys.elementAt(4)}'          --> Type in 5")
-                println("To use         '${allCharSkills.keys.elementAt(5)}'                  --> Type in 6")
+                println("To attack with '${allCharSkills.keys.elementAt(3)}'         --> Type in 4")
+                println("To attack with '${allCharSkills.keys.elementAt(4)}'   --> Type in 5")
+                println("To use         'Inventory'               --> Type in 6")
                 println()
 
                 print("Input: ")
@@ -83,12 +83,11 @@ class Enchantress(
                             "'${this.name}' receives healing equal to " +
                                     "${(maxHealthPoints - newHealthPoints) + healAmount} HP!"
                         )
-                        println("'${this.name}' currently has $healthPoints/$maxHealthPoints HP!\n")
                     } else {
                         healthPoints += healAmount
                         println("'${this.name}' receives healing equal to $healAmount HP!")
-                        println("'${this.name}' currently has $healthPoints/$maxHealthPoints HP!\n")
                     }
+                    println("'${this.name}' currently has $healthPoints/$maxHealthPoints HP!")
                     choosenEnemy.enemyGetsDamage(lostHealth = damageDone)
                     check = false
                 } else if ((attack >= 5) && (attack <= 6)) {

@@ -18,5 +18,4 @@ class Potion(val name: String, amount: Int) {
         println("'${hero.name}' currently has ${hero.healthPoints}/${hero.maxHealthPoints} HP!\n")
     }
 
-
 }

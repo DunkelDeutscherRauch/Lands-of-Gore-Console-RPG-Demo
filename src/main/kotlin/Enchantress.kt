@@ -118,13 +118,28 @@ class Enchantress(
                     println()
                     check = false
                 } else if (attack == 6) {
-                    println("\nThis skill has no effect yet, please try another one!")
+                    println("\nWhich potion do you want to use?\n")
+                    if (inventory.isNotEmpty()) {
+                        for (i in inventory) {
+                            println("Type ${inventory.indexOf(i) + 1} for ${i.name} - ${i.description}")
+                        }
+                        println()
+                        print("Input: ")
+                        val choosePotion: Int = readln().toInt()
+                        println()
+                        val choosenPotion = inventory.elementAt(choosePotion - 1)
+                        choosenPotion.usePotion(this)
+                        inventory.remove(choosenPotion)
+                        check = false
+                    } else {
+                        println("The inventory is empty! Choose another skill!\n")
+                    }
+                } else {
+                    println("\nWrong input! Try again!")
                 }
-            } else {
-                println("\nWrong input! Try again!")
             }
         }
-    }
 
+    }
 }
 

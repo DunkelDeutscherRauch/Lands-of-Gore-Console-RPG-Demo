@@ -21,7 +21,7 @@ class Ranger(
         "Elixir" to healingItem
     )
 
-    override fun attackEnemy(opponent: MutableList<Enemy>) {
+    override fun attackEnemy(opponent: MutableList<Enemy>, hero: MutableList<Hero>) {
         var check = true
         while (check) {
             if (!isCharDead) {

@@ -21,7 +21,7 @@ class Swordmaster(
         "Elixir" to healingItem
     )
 
-    override fun attackEnemy(opponent: MutableList<Enemy>) {
+    override fun attackEnemy(opponent: MutableList<Enemy>, hero: MutableList<Hero>) {
         var check = true
         while (check) {
             if (!isCharDead) {
@@ -57,8 +57,18 @@ class Swordmaster(
                     check = false
                     } else if (attack == 3) {
                         println()
-                        println("Placeholdertext")
+                        println("'${this.name}' screams loudly: \"WOOOOAAAAAAHHHH!!!\"")
+                        for (i in hero) {
+                            i.armor += 25
+                            println("${i.name}`s armor increases by 25!")
+                            println("${i.name} has now ${i.armor}!")
+                        }
+                        println()
+                    } else if (attack == 4) {
+                        var attackedEnemys: MutableMap<Enemy, Int> = mutableMapOf()
+                        repeat(5) {
 
+                        }
 
                     }
                 }

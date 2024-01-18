@@ -87,8 +87,8 @@ class Ranger(
                         val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
                         println("${i.name} receive $damageDone damage!")
                         i.enemyGetsDamage(lostHealth = damageDone)
-                        check = false
                     }
+                    check = false
                 } else if (attack == 5) {
                     println("\nWhich potion do you want to use?\n")
                     if (inventory.isNotEmpty()) {

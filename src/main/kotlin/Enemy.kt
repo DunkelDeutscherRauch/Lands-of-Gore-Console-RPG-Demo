@@ -10,12 +10,11 @@ open class Enemy(var name: String, var healthPoints: Int, var isEnemyDead: Boole
         healthPoints -= lostHealth
         if (healthPoints <= 0) {
             isEnemyDead = true
-            println()
             println("YOU KILLED '${this.name}'!")
         } else {
             println("'${this.name}' has ${this.healthPoints}/${this.maxHealthPoints} HP left!")
-            println()
         }
+        println()
     }
 
 }

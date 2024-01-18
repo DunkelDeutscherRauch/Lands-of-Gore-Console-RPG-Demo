@@ -12,7 +12,7 @@ class Enchantress(
     var attackTwo: IntRange = (50..100)
     var attackThree: IntRange = (75..150)
     var attackFour: IntRange = (50..100)
-    var attackFive: IntRange = (500..750)
+    var attackFive: IntRange = (750..750)
 
 
     var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(
@@ -22,9 +22,9 @@ class Enchantress(
         "Drop of Essence" to attackFour,
         "Vanishing Sea of Fire" to attackFive,
 
-    )
+        )
 
-    override fun attackEnemy(opponent: MutableList<Enemy>, hero: MutableList<Hero>,inventory: MutableList<Potion>) {
+    override fun attackEnemy(opponent: MutableList<Enemy>, hero: MutableList<Hero>, inventory: MutableList<Potion>) {
         var check = true
         while (check) {
             if (!isCharDead) {
@@ -90,7 +90,34 @@ class Enchantress(
                     println("'${this.name}' currently has $healthPoints/$maxHealthPoints HP!")
                     choosenEnemy.enemyGetsDamage(lostHealth = damageDone)
                     check = false
-                } else if ((attack >= 5) && (attack <= 6)) {
+                } else if (attack == 5) {
+                    println(
+                        "\n'${this.name}' begins to whisper: \"From the ashes of the past. " +
+                                "Fire rises at it´s last.\""
+                    )
+                    Thread.sleep(2500)
+                    println("'${this.name}' eyes turn from blue to red...")
+                    Thread.sleep(1750)
+                    println("\"Flames are dancing in my heart. Ripping my Soul apart.\"")
+                    Thread.sleep(2500)
+                    println("'${this.name}' begin to levitate...")
+                    Thread.sleep(1750)
+                    println("\"I am burning deep inside. Ignite the light in an endless night.\"")
+                    Thread.sleep(2500)
+                    println("Flames surround '${this.name}'´s body...")
+                    Thread.sleep(1750)
+                    println("\"Feel the pain, feel the desire.\"")
+                    Thread.sleep(2500)
+                    println("\"ALL EVIL SHALL BURN IN A VANISHING SEA OF FIRE!\"\n")
+                    Thread.sleep(2500)
+                    for (i in opponent) {
+                        val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
+                        println("${i.name} receive $damageDone damage!")
+                        i.enemyGetsDamage(lostHealth = damageDone)
+                    }
+                    println()
+                    check = false
+                } else if (attack == 6) {
                     println("\nThis skill has no effect yet, please try another one!")
                 }
             } else {

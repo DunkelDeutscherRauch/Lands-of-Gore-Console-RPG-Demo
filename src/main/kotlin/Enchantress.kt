@@ -39,8 +39,13 @@ class Enchantress(
                 println()
 
                 print("Input: ")
-                val attack: Int = readln().toInt()
-
+                val attack: Int
+                try {
+                    attack = readln().toInt()
+                } catch (e: Exception) {
+                    println("\nWrong input! Try again!\n")
+                    continue
+                }
                 if ((attack >= 1) && (attack <= 3)) {
                     println("\nWhich enemy do you want to attack?\n")
                     for (i in opponent) {
@@ -48,7 +53,13 @@ class Enchantress(
                     }
                     println()
                     print("Input: ")
-                    val chooseEnemy: Int = readln().toInt()
+                    val chooseEnemy: Int
+                    try {
+                        chooseEnemy = readln().toInt()
+                    } catch (e: Exception) {
+                        println("\nWrong input! Try again!\n")
+                        continue
+                    }
                     println()
                     val choosenEnemy = opponent.elementAt(chooseEnemy - 1)
                     val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
@@ -66,7 +77,13 @@ class Enchantress(
                     }
                     println()
                     print("Input: ")
-                    val chooseEnemy: Int = readln().toInt()
+                    val chooseEnemy: Int
+                    try {
+                        chooseEnemy = readln().toInt()
+                    } catch (e: Exception) {
+                        println("\nWrong input! Try again!\n")
+                        continue
+                    }
                     println()
                     val choosenEnemy = opponent.elementAt(chooseEnemy - 1)
                     val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
@@ -125,7 +142,13 @@ class Enchantress(
                         }
                         println()
                         print("Input: ")
-                        val choosePotion: Int = readln().toInt()
+                        val choosePotion: Int
+                        try {
+                            choosePotion = readln().toInt()
+                        } catch (e: Exception) {
+                            println("\nWrong input! Try again!\n")
+                            continue
+                        }
                         println()
                         val choosenPotion = inventory.elementAt(choosePotion - 1)
                         choosenPotion.usePotion(this)

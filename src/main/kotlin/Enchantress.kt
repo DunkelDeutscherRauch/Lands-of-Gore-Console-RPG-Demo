@@ -143,14 +143,15 @@ class Enchantress(
                         println()
                         print("Input: ")
                         val choosePotion: Int
+                        val choosenPotion: Potion
                         try {
                             choosePotion = readln().toInt()
+                            choosenPotion = inventory.elementAt(choosePotion - 1)
                         } catch (e: Exception) {
                             println("\nWrong input! Try again!\n")
                             continue
                         }
                         println()
-                        val choosenPotion = inventory.elementAt(choosePotion - 1)
                         choosenPotion.usePotion(this)
                         inventory.remove(choosenPotion)
                         check = false

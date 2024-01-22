@@ -5,8 +5,8 @@ class Minion(name: String = "Undead Druid",
 
     override val maxHealthPoints: Int = healthPoints
 
-    override fun attackHero(opponent: Hero) {
-        println("${this.name} can not attack yet. So your enemy is harmless.\n")
+    override fun attackHero(opponent: MutableList<Hero>) {
+
     }
 
 

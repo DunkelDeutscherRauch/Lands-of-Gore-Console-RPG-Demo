@@ -1,7 +1,7 @@
 class Ranger(
     name: String = "",
     healthPoints: Int = 375,
-    armor: Int = 50,
+    armor: Int = 25,
     isCharDead: Boolean = false
 ) : Hero(name, healthPoints, armor, isCharDead) {
 

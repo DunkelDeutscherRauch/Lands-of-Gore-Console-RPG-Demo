@@ -17,7 +17,7 @@ class Boss(isEnemyDead: Boolean = false) : Enemy(name = "Mistress of the Swamp",
     var allBossSkills: MutableMap<String, Int> = mutableMapOf(
         "Drowning" to bossAttackOne,
         "Mind Flay" to bossAttackTwo,
-        "Sticky Webbing" to bossAttackThree,
+        "Mind Blast" to bossAttackThree,
         "Reign of Chaos" to bossAttackFour,
         "Power of unholy Decay" to bossAttackFive,
     )
@@ -25,7 +25,7 @@ class Boss(isEnemyDead: Boolean = false) : Enemy(name = "Mistress of the Swamp",
     var allBossSkillList: MutableList<String> = mutableListOf(
         "Drowning",
         "Mind Flay",
-        "Sticky Webbing",
+        "Mind Blast",
         "Reign of Chaos",
         "Power of unholy Decay",
     )
@@ -42,11 +42,13 @@ class Boss(isEnemyDead: Boolean = false) : Enemy(name = "Mistress of the Swamp",
                 val attackDamage = allBossSkills.values.elementAt(allBossSkills.keys.indexOf(attack))
                 val damageDone = (attackDamage + raisedDamage) - attackedHero.armor
                 if (damageDone > 0) {
-                    println("'${attackedHero.name}' has been attacked with ${allBossSkills.keys.elementAt(attackIndex)}!")
+                    println("'${attackedHero.name}' has been attacked with " +
+                            "${allBossSkills.keys.elementAt(attackIndex)}!")
                     println("'${attackedHero.name}' receive $damageDone damage!")
                     attackedHero.playerGetsDamage(lostHealth = damageDone)
                 } else {
-                    println("'${attackedHero.name}' has been attacked with ${allBossSkills.keys.elementAt(attackIndex)}!")
+                    println("'${attackedHero.name}' has been attacked with " +
+                            "${allBossSkills.keys.elementAt(attackIndex)}!")
                     println("'${attackedHero.name}' receive 0 damage!")
                     attackedHero.playerGetsDamage(lostHealth = 0)
                 }
@@ -74,7 +76,7 @@ class Boss(isEnemyDead: Boolean = false) : Enemy(name = "Mistress of the Swamp",
                 }
             } else if (attackIndex == 4){
                 println("'${this.name}' gain power and get´s stronger! But '${this.name}' also loose 50 HP!")
-                raisedDamage += 5
+                raisedDamage += 25
                 this.enemyGetsDamage(lostHealth = 50)
             }
         } else {

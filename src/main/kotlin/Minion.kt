@@ -3,6 +3,8 @@ class Minion(isEnemyDead: Boolean = false)
 
     override val maxHealthPoints: Int = healthPoints
 
+
+
     override fun attackHero(opponent: MutableList<Hero>) {
         println("Placeholder")
 

@@ -1,9 +1,5 @@
-class Ranger(
-    name: String = "",
-    healthPoints: Int = 375,
-    armor: Int = 25,
-    isCharDead: Boolean = false
-) : Hero(name, healthPoints, armor, isCharDead) {
+class Ranger(isCharDead: Boolean = false
+) : Hero(name = "Nathanos", healthPoints = 375, armor = 25, isCharDead) {
 
     override val maxHealthPoints: Int = healthPoints
 

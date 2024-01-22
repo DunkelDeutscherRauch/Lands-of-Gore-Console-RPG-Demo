@@ -1,9 +1,5 @@
-class Swordmaster(
-    name: String = "",
-    healthPoints: Int = 500,
-    armor: Int = 50,
-    isCharDead: Boolean = false
-) : Hero(name, healthPoints, armor, isCharDead) {
+class Swordmaster(isCharDead: Boolean = false
+) : Hero(name = "Anduin", healthPoints = 500, armor = 50, isCharDead) {
 
     override val maxHealthPoints: Int = healthPoints
 

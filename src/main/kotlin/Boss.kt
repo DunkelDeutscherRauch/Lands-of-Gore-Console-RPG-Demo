@@ -1,24 +1,25 @@
-class Boss(name: String = "The Swamp Witch",
-           healthPoints: Int = 1250,
-           isEnemyDead: Boolean = false )
-    : Enemy(name, healthPoints, isEnemyDead) {
+import kotlin.math.roundToInt
+
+class Boss(isEnemyDead: Boolean = false) : Enemy(name = "Mistress of the Swamp", healthPoints = 1250, isEnemyDead) {
 
     override val maxHealthPoints: Int = healthPoints
 
-    var bossAttackOne: Int = 35
-    var bossAttackTwo: Int = 70
-    var bossAttackThree: Int = 105
+    var minion = Minion()
+    var isMinionSummoned = false
+    var bossAttackOne: Int = 30
+    var bossAttackTwo: Int = 60
+    var bossAttackThree: Int = 90
     var bossAttackFour: Int = 75
     var bossAttackFive: Int = 0
-    var bossAttackSix: Int = 0
+    var raisedDamage: Int = 0
+
 
     var allBossSkills: MutableMap<String, Int> = mutableMapOf(
         "Drowning" to bossAttackOne,
         "Mind Flay" to bossAttackTwo,
         "Sticky Webbing" to bossAttackThree,
         "Reign of Chaos" to bossAttackFour,
-        "Swamp Plague" to bossAttackFive,
-        "Summon Minion" to bossAttackSix
+        "Power of unholy Decay" to bossAttackFive,
     )
 
     var allBossSkillList: MutableList<String> = mutableListOf(
@@ -26,45 +27,64 @@ class Boss(name: String = "The Swamp Witch",
         "Mind Flay",
         "Sticky Webbing",
         "Reign of Chaos",
-        "",
-        ""
+        "Power of unholy Decay",
     )
 
     override fun attackHero(opponent: MutableList<Hero>) {
-    if (!isEnemyDead) {
-        println("'${this.name}'s turn!")
-        println()
+        if (!isEnemyDead) {
+            println("'${this.name}'s turn!")
+            println()
 
-        val attack = allBossSkillList.random()
-        val attackIndex: Int = allBossSkillList.indexOf(attack)
-        if (attackIndex in 0..2) {
-            val attackedHero = opponent.random()
-            val attackDamage = allBossSkills.values.elementAt(allBossSkills.keys.indexOf(attack))
-            val damageDone = attackDamage - attackedHero.armor
-            if (damageDone > 0) {
-            println("'${attackedHero.name}' has been attacked with ${allBossSkills.keys.elementAt(attackIndex)}!")
-            println("'${attackedHero.name}' receive $damageDone damage!")
-            attackedHero.playerGetsDamage(lostHealth = damageDone,opponent)
-            } else {
-                println("'${attackedHero.name}' has been attacked with ${allBossSkills.keys.elementAt(attackIndex)}!")
-                println("'${attackedHero.name}' receive 0 damage!")
-                attackedHero.playerGetsDamage(lostHealth = 0,opponent)
+            val attack = allBossSkillList.random()
+            val attackIndex: Int = allBossSkillList.indexOf(attack)
+            if (attackIndex in 0..2) {
+                val attackedHero = opponent.random()
+                val attackDamage = allBossSkills.values.elementAt(allBossSkills.keys.indexOf(attack))
+                val damageDone = (attackDamage + raisedDamage) - attackedHero.armor
+                if (damageDone > 0) {
+                    println("'${attackedHero.name}' has been attacked with ${allBossSkills.keys.elementAt(attackIndex)}!")
+                    println("'${attackedHero.name}' receive $damageDone damage!")
+                    attackedHero.playerGetsDamage(lostHealth = damageDone)
+                } else {
+                    println("'${attackedHero.name}' has been attacked with ${allBossSkills.keys.elementAt(attackIndex)}!")
+                    println("'${attackedHero.name}' receive 0 damage!")
+                    attackedHero.playerGetsDamage(lostHealth = 0)
+                }
+                if (attackedHero.isCharDead) {
+                    opponent.remove(attackedHero)
+                }
+            } else if (attackIndex == 3) {
+                for (i in opponent) {
+                    val attackDamage = allBossSkills.values.elementAt(allBossSkills.keys.indexOf(attack))
+                    val damageDone = (attackDamage + raisedDamage) - i.armor
+                    if (damageDone > 0) {
+                        println("'${i.name}' has been attacked with ${allBossSkills.keys.elementAt(attackIndex)}!")
+                        println("'${i.name}' receive $damageDone damage!")
+                        i.playerGetsDamage(lostHealth = damageDone)
+                    } else {
+                        println("'${i.name}' has been attacked with ${allBossSkills.keys.elementAt(attackIndex)}!")
+                        println("'${i.name}' receive 0 damage!")
+                        i.playerGetsDamage(lostHealth = 0)
+                    }
+                }
+                for (i in opponent) {
+                    if (i.isCharDead) {
+                        opponent.remove(i)
+                    }
+                }
+            } else if (attackIndex == 4){
+                println("'${this.name}' gain power and get´s stronger! But '${this.name}' also loose 50 HP!")
+                raisedDamage += 5
+                this.enemyGetsDamage(lostHealth = 50)
             }
-        } else if (attackIndex == 3) {
-            for (i in opponent) {
-                val damageDone = allBossSkills.values.elementAt(allBossSkills.keys.indexOf(attack)) - i.armor
-                println("'${i.name}' has been attacked with ${allBossSkills.keys.elementAt(attackIndex)}!")
-                println("'${i.name}' receive $damageDone damage!")
-                i.playerGetsDamage(lostHealth = damageDone,opponent)
-            }
+        } else {
+            println("")
         }
 
     }
 
+    fun summon (minion: Minion, enemyList: MutableList<Enemy>) {
+        enemyList.add(minion)
+        this.isMinionSummoned = true
     }
-
-
-
-
-
 }

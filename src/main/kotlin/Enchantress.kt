@@ -1,10 +1,5 @@
-class Enchantress(
-    name: String = "",
-    healthPoints: Int = 250,
-    manaPoints: Int = 0,
-    armor: Int = 0,
-    isCharDead: Boolean = false
-) : Hero(name, healthPoints, armor, isCharDead) {
+class Enchantress(isCharDead: Boolean = false
+) : Hero(name = "Leah", healthPoints = 250, armor = 0, isCharDead) {
 
     override val maxHealthPoints: Int = healthPoints
 
@@ -27,7 +22,10 @@ class Enchantress(
     override fun attackEnemy(opponent: MutableList<Enemy>, hero: MutableList<Hero>, inventory: MutableList<Potion>) {
         var check = true
         while (check) {
-            if (!isCharDead) {
+            if (isCharDead) {
+                println("")
+                break
+            } else {
                 println("It´s your turn '${this.name}'! What do you want to do?")
                 println()
                 println("To attack with '${allCharSkills.keys.elementAt(0)}'               --> Type in 1")

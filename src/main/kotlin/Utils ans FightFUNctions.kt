@@ -23,9 +23,9 @@ fun fight(enemy: MutableList<Enemy>, hero: MutableList<Hero>, inventory: Mutable
         println()
         Thread.sleep(1750)
     } else {
-        boss.attackHero(heroList)
+        boss.attackHero(heroList, enemyList)
     }
-    boss.minion.attackHero(heroList)
+    boss.minion.attackHero(heroList, enemyList)
 }
 
 fun intro() {

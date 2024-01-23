@@ -63,6 +63,7 @@ class Swordmaster(
                         println("${i.name} has now ${i.armor}!")
                     }
                     println()
+                    check = false
                 } else if (attack == 4) {
                     println("\nWhich enemy do you want to attack?\n")
                     for (i in opponent) {

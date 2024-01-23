@@ -2,7 +2,7 @@ open class Enemy(var name: String, var healthPoints: Int, var isEnemyDead: Boole
 
     open val maxHealthPoints: Int = healthPoints
 
-    open fun attackHero(opponent: MutableList<Hero>) {
+    open fun attackHero(opponent: MutableList<Hero>, enemy: MutableList<Enemy>) {
         println("Placeholder")
     }
 

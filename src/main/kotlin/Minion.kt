@@ -25,8 +25,8 @@ class Minion(isEnemyDead: Boolean = false) : Enemy(name = "Ciórdan", healthPoin
     )
 
 
-    override fun attackHero(opponent: MutableList<Hero>) {
-        if (boss.isMinionSummoned) {
+    override fun attackHero(opponent: MutableList<Hero>, enemy: MutableList<Enemy>) {
+        if (!isEnemyDead && boss.isMinionSummoned) {
             println("'${this.name}'´s turn!")
             println()
 

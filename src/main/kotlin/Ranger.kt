@@ -42,7 +42,7 @@ class Ranger(
                 if ((attack >= 1) && (attack <= 2)) {
                     println("\nWhich enemy do you want to attack?\n")
                     for (i in opponent) {
-                        println("Type ${opponent.indexOf(i) + 1} for ${i.name}")
+                        println("Type ${opponent.indexOf(i) + 1} for '${i.name}'")
                     }
                     println()
                     print("Input: ")
@@ -69,7 +69,7 @@ class Ranger(
                 } else if (attack == 3) {
                     println("\nWhich enemy do you want to attack?\n")
                     for (i in opponent) {
-                        println("Type ${opponent.indexOf(i) + 1} for ${i.name}")
+                        println("Type ${opponent.indexOf(i) + 1} for '${i.name}'")
                     }
                     println()
                     print("Input: ")

@@ -15,9 +15,10 @@ var inventory: MutableList<Potion> = mutableListOf(
 
 fun main() {
 
-   // intro()
+    intro()
     fightloop()
     //outro()
+
 }
 
 

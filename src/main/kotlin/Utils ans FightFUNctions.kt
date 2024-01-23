@@ -71,13 +71,9 @@ fun intro () {
                                                                                                   /^v^\                                                                                            
         """)
 
+    println()
+
     Thread.sleep(5000)
-
-    println()
-    println("Ready? FIGHT!")
-    println()
-
-    Thread.sleep(2500)
 
 }
 

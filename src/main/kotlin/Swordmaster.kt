@@ -36,13 +36,20 @@ class Swordmaster(
                 if ((attack >= 1) && (attack <= 2)) {
                     println("\nWhich enemy do you want to attack?\n")
                     for (i in opponent) {
-                        println("Type ${opponent.indexOf(i) + 1} for ${i.name}")
+                        println("Type ${opponent.indexOf(i) + 1} for '${i.name}'")
                     }
                     println()
                     print("Input: ")
-                    val chooseEnemy: Int = readln().toInt()
+                    val chooseEnemy: Int
+                    val choosenEnemy: Enemy
+                    try {
+                        chooseEnemy = readln().toInt()
+                        choosenEnemy = opponent.elementAt(chooseEnemy - 1)
+                    } catch (e: Exception) {
+                        println("\nWrong input! Try again!\n")
+                        continue
+                    }
                     println()
-                    val choosenEnemy = opponent.elementAt(chooseEnemy - 1)
                     val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
                     println(
                         "You attack '${choosenEnemy.name}' with " +
@@ -71,9 +78,16 @@ class Swordmaster(
                     }
                     println()
                     print("Input: ")
-                    val chooseEnemy: Int = readln().toInt()
+                    val chooseEnemy: Int
+                    val choosenEnemy: Enemy
+                    try {
+                        chooseEnemy = readln().toInt()
+                        choosenEnemy = opponent.elementAt(chooseEnemy - 1)
+                    } catch (e: Exception) {
+                        println("\nWrong input! Try again!\n")
+                        continue
+                    }
                     println()
-                    val choosenEnemy = opponent.elementAt(chooseEnemy - 1)
                     val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
                     println(
                         "You attack '${choosenEnemy.name}' with " +

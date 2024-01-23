@@ -2,7 +2,7 @@ import ANSI.*
 
 fun fight(enemy: MutableList<Enemy>,hero: MutableList<Hero>, inventory: MutableList<Potion>) {
     for (fighter in hero) {
-        if (!boss.isEnemyDead) {
+        if (!boss.isEnemyDead || !boss.minion.isEnemyDead) {
             fighter.attackEnemy(enemyList, heroList, inventory)
         } else {
             break

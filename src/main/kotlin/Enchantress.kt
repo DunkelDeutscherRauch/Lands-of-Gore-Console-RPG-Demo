@@ -51,14 +51,15 @@ class Enchantress(
                     println()
                     print("Input: ")
                     val chooseEnemy: Int
+                    val choosenEnemy: Enemy
                     try {
                         chooseEnemy = readln().toInt()
+                        choosenEnemy = opponent.elementAt(chooseEnemy - 1)
                     } catch (e: Exception) {
                         println("\nWrong input! Try again!\n")
                         continue
                     }
                     println()
-                    val choosenEnemy = opponent.elementAt(chooseEnemy - 1)
                     val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
                     println(
                         "You attack '${choosenEnemy.name}' with " +
@@ -78,14 +79,15 @@ class Enchantress(
                     println()
                     print("Input: ")
                     val chooseEnemy: Int
+                    val choosenEnemy: Enemy
                     try {
                         chooseEnemy = readln().toInt()
+                        choosenEnemy = opponent.elementAt(chooseEnemy - 1)
                     } catch (e: Exception) {
                         println("\nWrong input! Try again!\n")
                         continue
                     }
                     println()
-                    val choosenEnemy = opponent.elementAt(chooseEnemy - 1)
                     val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
                     val healAmount: Int = damageDone
                     println(
@@ -167,7 +169,7 @@ class Enchantress(
                         println("The inventory is empty! Choose another skill!\n")
                     }
                 } else {
-                    println("\nWrong input! Try again!")
+                    println("\nWrong input! Try again!\n")
                 }
             }
         }

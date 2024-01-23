@@ -1,7 +1,7 @@
 import ANSI.red
 import ANSI.reset
 
-class Minion(isEnemyDead: Boolean = false) : Enemy(name = "Ciórdan", healthPoints = 250, isEnemyDead) {
+class Minion(isEnemyDead: Boolean = false) : Enemy(name = "Ciórdan", healthPoints = 625, isEnemyDead) {
 
     override val maxHealthPoints: Int = healthPoints
 
@@ -27,7 +27,7 @@ class Minion(isEnemyDead: Boolean = false) : Enemy(name = "Ciórdan", healthPoin
 
     override fun attackHero(opponent: MutableList<Hero>) {
         if (!isEnemyDead && boss.isMinionSummoned) {
-            println("Enemy's turn!")
+            println("'${this.name}'´s turn!")
             println()
 
             val attackedHero = opponent.random()

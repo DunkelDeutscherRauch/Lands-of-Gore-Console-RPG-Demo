@@ -3,10 +3,10 @@ class Swordmaster(isCharDead: Boolean = false
 
     override val maxHealthPoints: Int = healthPoints
 
-    private var attackOne: IntRange = (0..0)
-    private var attackTwo: IntRange = (0..0)
+    private var attackOne: IntRange = (25..50)
+    private var attackTwo: IntRange = (35..70)
     private var attackThree: IntRange = (0..0)
-    private var attackFour: IntRange = (0..0)
+    private var attackFour: IntRange = (60..120)
 
 
     var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(

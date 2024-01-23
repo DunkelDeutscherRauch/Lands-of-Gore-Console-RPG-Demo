@@ -117,7 +117,7 @@ class Enchantress(isCharDead: Boolean = false
                                 "Fire rises at it´s last.\""
                     )
                     Thread.sleep(2500)
-                    println("'${this.name}' eyes turn from blue to red...")
+                    println("'${this.name}'´s eyes turn from blue to red...")
                     Thread.sleep(1750)
                     println("\"Flames are dancing in my heart. Ripping my Soul apart.\"")
                     Thread.sleep(2500)
@@ -136,7 +136,7 @@ class Enchantress(isCharDead: Boolean = false
                         println("${i.name} receive $damageDone damage!")
                         i.enemyGetsDamage(lostHealth = damageDone)
                     }
-                        var iterator = enemyList.iterator()
+                        val iterator = enemyList.iterator()
                         for (i in iterator) {
                         if (i.isEnemyDead) {
                             iterator.remove()

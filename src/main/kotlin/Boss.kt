@@ -6,9 +6,9 @@ class Boss(isEnemyDead: Boolean = false) : Enemy(name = "Mistress of the Swamp",
 
     var minion = Minion()
     var isMinionSummoned = false
-    var bossAttackOne: Int = 30
-    var bossAttackTwo: Int = 60
-    var bossAttackThree: Int = 90
+    var bossAttackOne: Int = 50
+    var bossAttackTwo: Int = 75
+    var bossAttackThree: Int = 100
     var bossAttackFour: Int = 75
     var bossAttackFive: Int = 0
     var raisedDamage: Int = 0
@@ -32,7 +32,7 @@ class Boss(isEnemyDead: Boolean = false) : Enemy(name = "Mistress of the Swamp",
 
     override fun attackHero(opponent: MutableList<Hero>) {
         if (!isEnemyDead) {
-            println("'${this.name}'s turn!")
+            println("'${this.name}'´s turn!")
             println()
 
             val attack = allBossSkillList.random()

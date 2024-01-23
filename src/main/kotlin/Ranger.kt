@@ -107,9 +107,10 @@ class Ranger(isCharDead: Boolean = false
                         println("${i.name} receive $damageDone damage!")
                         i.enemyGetsDamage(lostHealth = damageDone)
                     }
-                    for (i in opponent) {
+                    val iterator = enemyList.iterator()
+                    for (i in iterator) {
                         if (i.isEnemyDead) {
-                            opponent.remove(i)
+                            iterator.remove()
                         }
                     }
                     check = false

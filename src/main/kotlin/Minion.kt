@@ -13,14 +13,14 @@ class Minion(isEnemyDead: Boolean = false) : Enemy(name = "Ciórdan", healthPoin
     var allMinionSkills: MutableMap<String, IntRange> = mutableMapOf(
         "Wind Fury" to minionAttackOne,
         "Wrath of Nature" to minionAttackTwo,
-        "Thorny Vine" to minionAttackThree,
+        "Unholy Thorny Vine" to minionAttackThree,
         "Broken Earth" to minionAttackFour
     )
 
     val listOfAllMinionAttacks: MutableList<String> = mutableListOf(
         "Wind Fury",
         "Wrath of Nature",
-        "Thorny Vine",
+        "Unholy Thorny Vine",
         "Broken Earth"
     )
 

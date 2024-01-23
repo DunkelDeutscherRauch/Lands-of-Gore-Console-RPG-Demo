@@ -13,7 +13,7 @@ class Swordmaster(
     var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(
         "Pommel Strike" to attackOne,
         "Sword Strike" to attackTwo,
-        "Scream of armored Soul" to attackThree,
+        "Scream of Armored Soul" to attackThree,
         "Rage" to attackFour,
     )
 
@@ -23,11 +23,11 @@ class Swordmaster(
             if (!isCharDead) {
                 println("It´s your turn '${this.name}'! What do you want to do?")
                 println()
-                println("To attack with '${allCharSkills.keys.elementAt(0)}'       --> Type in 1")
-                println("To attack with '${allCharSkills.keys.elementAt(1)}'       --> Type in 2")
-                println("To attack with '${allCharSkills.keys.elementAt(2)}'        --> Type in 3")
-                println("To attack with '${allCharSkills.keys.elementAt(3)}'   --> Type in 4")
-                println("To use         'Inventory'           --> Type in 5")
+                println("To attack with '${allCharSkills.keys.elementAt(0)}'            --> Type in 1")
+                println("To attack with '${allCharSkills.keys.elementAt(1)}'             --> Type in 2")
+                println("To attack with '${allCharSkills.keys.elementAt(2)}'   --> Type in 3")
+                println("To attack with '${allCharSkills.keys.elementAt(3)}'                     --> Type in 4")
+                println("To use         'Inventory'                --> Type in 5")
                 println()
 
                 print("Input: ")

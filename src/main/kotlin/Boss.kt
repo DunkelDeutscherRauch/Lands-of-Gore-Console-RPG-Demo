@@ -19,7 +19,7 @@ class Boss(isEnemyDead: Boolean = false) : Enemy(name = "Mistress of the Swamp",
         "Mind Flay" to bossAttackTwo,
         "Mind Blast" to bossAttackThree,
         "Reign of Chaos" to bossAttackFour,
-        "Power of unholy Decay" to bossAttackFive,
+        "Power of Unholy Decay" to bossAttackFive,
     )
 
     var allBossSkillList: MutableList<String> = mutableListOf(
@@ -27,7 +27,7 @@ class Boss(isEnemyDead: Boolean = false) : Enemy(name = "Mistress of the Swamp",
         "Mind Flay",
         "Mind Blast",
         "Reign of Chaos",
-        "Power of unholy Decay",
+        "Power of Unholy Decay",
     )
 
     override fun attackHero(opponent: MutableList<Hero>) {

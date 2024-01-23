@@ -11,15 +11,15 @@ fun fight(enemy: MutableList<Enemy>, hero: MutableList<Hero>, inventory: Mutable
 
     if (boss.healthPoints <= 625 && !boss.isMinionSummoned) {
         boss.summon(boss.minion, enemyList)
-        println("\n'${boss.name}': \"You infantile mortals are getting on my nerves!\"")
+        println("'${boss.name}': \"You infantile mortals are getting on my nerves!\"")
         Thread.sleep(2500)
         println("'${boss.name}': \"Your Mistress is calling you, my beloved minion!\"")
         Thread.sleep(2500)
         println("'${boss.name}': \"${boss.minion.name}...RISE!\"")
         Thread.sleep(2500)
-        println("'${boss.minion.name}: \"Your wish is my desire Mistress!\"")
+        println("'${boss.minion.name}': \"Your wish is my desire Mistress!\"")
         Thread.sleep(2500)
-        println("'$${boss.minion.name}' appears on the battlefield!")
+        println("'${boss.minion.name}' appears on the battlefield!")
         println()
         Thread.sleep(1750)
     } else {

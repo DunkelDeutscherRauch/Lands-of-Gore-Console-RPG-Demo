@@ -10,8 +10,10 @@ class Potion(val name: String, amount: Int, var description: String = "Heals $am
         if (newHealthPoints >= hero.maxHealthPoints) {
             hero.healthPoints = hero.maxHealthPoints
 
-            println("'${this.name}' receives healing equal to " +
-                    "${(hero.maxHealthPoints - newHealthPoints) + healAmount} HP!")
+            println(
+                "'${this.name}' receives healing equal to " +
+                        "${(hero.maxHealthPoints - newHealthPoints) + healAmount} HP!"
+            )
         } else {
             hero.healthPoints += healAmount
             println("'${hero.name}' receives healing equal to $healAmount HP!")

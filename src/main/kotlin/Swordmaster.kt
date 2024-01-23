@@ -1,4 +1,5 @@
-class Swordmaster(isCharDead: Boolean = false
+class Swordmaster(
+    isCharDead: Boolean = false
 ) : Hero(name = "Anduin", healthPoints = 500, armor = 50, isCharDead) {
 
     override val maxHealthPoints: Int = healthPoints
@@ -62,8 +63,53 @@ class Swordmaster(isCharDead: Boolean = false
                         println("${i.name} has now ${i.armor}!")
                     }
                     println()
-                } else if ((attack == 4) && (attack == 5)) {
-                    println("Work in Progress!")
+                } else if (attack == 4) {
+                    println("\nWhich enemy do you want to attack?\n")
+                    for (i in opponent) {
+                        println("Type ${opponent.indexOf(i) + 1} for ${i.name}")
+                    }
+                    println()
+                    print("Input: ")
+                    val chooseEnemy: Int = readln().toInt()
+                    println()
+                    val choosenEnemy = opponent.elementAt(chooseEnemy - 1)
+                    val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
+                    println(
+                        "You attack '${choosenEnemy.name}' with " +
+                                "'${allCharSkills.keys.elementAt(attack - 1)}'!"
+                    )
+                    println("'${choosenEnemy.name}' receive $damageDone damage!")
+                    choosenEnemy.enemyGetsDamage(lostHealth = damageDone)
+                    if (choosenEnemy.isEnemyDead) {
+                        opponent.remove(choosenEnemy)
+                    }
+                    check = false
+                } else if (attack == 5) {
+                    println("\nWhich potion do you want to use?\n")
+                    if (inventory.isNotEmpty()) {
+                        for (i in inventory) {
+                            println("Type ${inventory.indexOf(i) + 1} for ${i.name} - ${i.description}")
+                        }
+                        println()
+                        print("Input: ")
+                        val choosePotion: Int
+                        val choosenPotion: Potion
+                        try {
+                            choosePotion = readln().toInt()
+                            choosenPotion = inventory.elementAt(choosePotion - 1)
+                        } catch (e: Exception) {
+                            println("\nWrong input! Try again!\n")
+                            continue
+                        }
+                        println()
+                        choosenPotion.usePotion(this)
+                        inventory.remove(choosenPotion)
+                        check = false
+                    } else {
+                        println("The inventory is empty! Choose another skill!\n")
+                    }
+                } else {
+                    println("\nWrong input! Try again!")
                 }
             }
         }

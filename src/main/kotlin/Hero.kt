@@ -7,12 +7,13 @@ open class Hero(var name: String, var healthPoints: Int, var armor: Int = 0, var
     }
 
 
-    fun playerGetsDamage (lostHealth: Int) {
+    fun playerGetsDamage(lostHealth: Int) {
         this.healthPoints -= lostHealth
         if (healthPoints <= 0) {
             isCharDead = true
             println()
             println("'${this.name}' IS DEAD!")
+            println()
         } else {
             println("'${this.name}' has ${this.healthPoints}/${this.maxHealthPoints} HP left!")
             println()

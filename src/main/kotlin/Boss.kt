@@ -1,17 +1,15 @@
-import kotlin.math.roundToInt
-
 class Boss(isEnemyDead: Boolean = false) : Enemy(name = "Mistress of the Swamp", healthPoints = 1250, isEnemyDead) {
 
     override val maxHealthPoints: Int = healthPoints
 
     var minion = Minion()
     var isMinionSummoned = false
-    var bossAttackOne: Int = 50
-    var bossAttackTwo: Int = 75
-    var bossAttackThree: Int = 100
-    var bossAttackFour: Int = 75
-    var bossAttackFive: Int = 0
-    var raisedDamage: Int = 0
+    private var bossAttackOne: Int = 50
+    private var bossAttackTwo: Int = 75
+    private var bossAttackThree: Int = 100
+    private var bossAttackFour: Int = 75
+    private var bossAttackFive: Int = 0
+    private var raisedDamage: Int = 0
 
 
     var allBossSkills: MutableMap<String, Int> = mutableMapOf(

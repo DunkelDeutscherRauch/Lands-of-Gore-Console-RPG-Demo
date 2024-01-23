@@ -5,10 +5,10 @@ class Minion(isEnemyDead: Boolean = false) : Enemy(name = "Ciórdan", healthPoin
 
     override val maxHealthPoints: Int = healthPoints
 
-    var minionAttackOne: IntRange = (15..30)
-    var minionAttackTwo: IntRange = (25..50)
-    var minionAttackThree: IntRange = (35..70)
-    var minionAttackFour: IntRange = (45..90)
+    private var minionAttackOne: IntRange = (15..30)
+    private var minionAttackTwo: IntRange = (25..50)
+    private var minionAttackThree: IntRange = (35..70)
+    private var minionAttackFour: IntRange = (45..90)
 
     var allMinionSkills: MutableMap<String, IntRange> = mutableMapOf(
         "Wind Fury" to minionAttackOne,

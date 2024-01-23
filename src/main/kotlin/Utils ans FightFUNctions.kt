@@ -1,6 +1,6 @@
 import ANSI.*
 
-fun fight(enemy: MutableList<Enemy>, hero: MutableList<Hero>, inventory: MutableList<Potion>) {
+fun fight(enemy: MutableList<Enemy>,hero: MutableList<Hero>, inventory: MutableList<Potion>) {
     for (fighter in hero) {
         if (!boss.isEnemyDead) {
             fighter.attackEnemy(enemyList, heroList, inventory)
@@ -87,4 +87,24 @@ fun intro() {
 
 fun outro() {
 
+}
+
+fun fightloop() {
+    while (enemyList.isNotEmpty() && heroList.isNotEmpty()) {
+
+        fight(enemyList, heroList, inventory)
+
+        if (enemyList.isEmpty()) {
+            println("Your heroes done it! The evil witch is dead!")
+            println()
+            Thread.sleep(2500)
+            println("Game Over!")
+        } else if (heroList.isEmpty()) {
+            println("Evil has won...")
+            println()
+            Thread.sleep(2500)
+            println("Game Over!")
+        }
+
+    }
 }

@@ -46,7 +46,7 @@ class Enchantress(
                 if ((attack >= 1) && (attack <= 3)) {
                     println("\nWhich enemy do you want to attack?\n")
                     for (i in opponent) {
-                        println("Type ${opponent.indexOf(i) + 1} for ${i.name}")
+                        println("Type ${opponent.indexOf(i) + 1} for '${i.name}'")
                     }
                     println()
                     print("Input: ")
@@ -73,7 +73,7 @@ class Enchantress(
                 } else if (attack == 4) {
                     println("\nWhich enemy do you want to attack?\n")
                     for (i in opponent) {
-                        println("Type ${opponent.indexOf(i) + 1} for ${i.name}")
+                        println("Type ${opponent.indexOf(i) + 1} for '${i.name}'")
                     }
                     println()
                     print("Input: ")
@@ -122,13 +122,13 @@ class Enchantress(
                     Thread.sleep(2500)
                     println("'${this.name}' begin to levitate...")
                     Thread.sleep(1750)
-                    println("${this.name}': \"I am burning deep inside. Ignite the light in an endless night.\"")
+                    println("'${this.name}': \"I am burning deep inside. Ignite the light in an endless night.\"")
                     Thread.sleep(2500)
                     println("Flames surround '${this.name}'´s body...")
                     Thread.sleep(1750)
-                    println("${this.name}': \"Feel the pain, feel the desire.\"")
+                    println("'${this.name}': \"Feel the pain, feel the desire.\"")
                     Thread.sleep(2500)
-                    println("${this.name}': \"ALL EVIL SHALL BURN IN A VANISHING SEA OF FIRE!\"\n")
+                    println("'${this.name}': \"ALL EVIL SHALL BURN IN A VANISHING SEA OF FIRE!\"\n")
                     Thread.sleep(2500)
                     for (i in opponent) {
                         val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
@@ -141,13 +141,12 @@ class Enchantress(
                             iterator.remove()
                         }
                     }
-                    println()
                     check = false
                 } else if (attack == 6) {
                     println("\nWhich potion do you want to use?\n")
                     if (inventory.isNotEmpty()) {
                         for (i in inventory) {
-                            println("Type ${inventory.indexOf(i) + 1} for ${i.name} - ${i.description}")
+                            println("Type ${inventory.indexOf(i) + 1} for '${i.name}' - ${i.description}")
                         }
                         println()
                         print("Input: ")

@@ -60,6 +60,9 @@ class Ranger(isCharDead: Boolean = false
                     )
                     println("'${choosenEnemy.name}' receive $damageDone damage!")
                     choosenEnemy.enemyGetsDamage(lostHealth = damageDone)
+                    if (choosenEnemy.isEnemyDead) {
+                        opponent.remove(choosenEnemy)
+                    }
                     check = false
                 } else if (attack == 3) {
                     println("\nWhich enemy do you want to attack?\n")
@@ -93,6 +96,9 @@ class Ranger(isCharDead: Boolean = false
                                 "receive a total damage of $damageDoneFinal!"
                     )
                     choosenEnemy.enemyGetsDamage(lostHealth = damageDoneFinal)
+                    if (choosenEnemy.isEnemyDead) {
+                        opponent.remove(choosenEnemy)
+                    }
                     check = false
                 } else if (attack == 4) {
                     println()
@@ -100,6 +106,11 @@ class Ranger(isCharDead: Boolean = false
                         val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
                         println("${i.name} receive $damageDone damage!")
                         i.enemyGetsDamage(lostHealth = damageDone)
+                    }
+                    for (i in opponent) {
+                        if (i.isEnemyDead) {
+                            opponent.remove(i)
+                        }
                     }
                     check = false
                 } else if (attack == 5) {

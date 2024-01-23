@@ -67,6 +67,9 @@ class Enchantress(isCharDead: Boolean = false
                     )
                     println("'${choosenEnemy.name}' receive $damageDone damage!")
                     choosenEnemy.enemyGetsDamage(lostHealth = damageDone)
+                    if (choosenEnemy.isEnemyDead) {
+                        opponent.remove(choosenEnemy)
+                    }
                     check = false
                 } else if (attack == 4) {
                     println("\nWhich enemy do you want to attack?\n")
@@ -104,6 +107,9 @@ class Enchantress(isCharDead: Boolean = false
                     }
                     println("'${this.name}' currently has $healthPoints/$maxHealthPoints HP!")
                     choosenEnemy.enemyGetsDamage(lostHealth = damageDone)
+                    if (choosenEnemy.isEnemyDead) {
+                        opponent.remove(choosenEnemy)
+                    }
                     check = false
                 } else if (attack == 5) {
                     println(
@@ -129,6 +135,12 @@ class Enchantress(isCharDead: Boolean = false
                         val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
                         println("${i.name} receive $damageDone damage!")
                         i.enemyGetsDamage(lostHealth = damageDone)
+                    }
+                        var iterator = enemyList.iterator()
+                        for (i in iterator) {
+                        if (i.isEnemyDead) {
+                            iterator.remove()
+                        }
                     }
                     println()
                     check = false

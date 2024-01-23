@@ -49,6 +49,9 @@ class Swordmaster(isCharDead: Boolean = false
                     )
                     println("'${choosenEnemy.name}' receive $damageDone damage!")
                     choosenEnemy.enemyGetsDamage(lostHealth = damageDone)
+                    if (choosenEnemy.isEnemyDead) {
+                        opponent.remove(choosenEnemy)
+                    }
                     check = false
                 } else if (attack == 3) {
                     println()

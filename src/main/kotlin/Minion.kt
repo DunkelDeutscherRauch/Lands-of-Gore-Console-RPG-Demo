@@ -1,5 +1,7 @@
-class Minion(isEnemyDead: Boolean = false)
-    : Enemy(name = "Ciórdan", healthPoints = 250, isEnemyDead) {
+import ANSI.red
+import ANSI.reset
+
+class Minion(isEnemyDead: Boolean = false) : Enemy(name = "Ciórdan", healthPoints = 250, isEnemyDead) {
 
     override val maxHealthPoints: Int = healthPoints
 
@@ -9,19 +11,37 @@ class Minion(isEnemyDead: Boolean = false)
     var minionAttackFour: IntRange = (45..90)
 
     var allMinionSkills: MutableMap<String, IntRange> = mutableMapOf(
-        "" to minionAttackOne,
-        "" to minionAttackTwo,
-        "" to minionAttackThree,
-        "" to minionAttackFour
+        "Wind Fury" to minionAttackOne,
+        "Wrath of Nature" to minionAttackTwo,
+        "Thorny Vine" to minionAttackThree,
+        "Broken Earth" to minionAttackFour
+    )
+
+    val listOfAllMinionAttacks: MutableList<String> = mutableListOf(
+        "Wind Fury",
+        "Wrath of Nature",
+        "Thorny Vine",
+        "Broken Earth"
     )
 
 
-
     override fun attackHero(opponent: MutableList<Hero>) {
-        println("Placeholder")
+        if (!isEnemyDead && boss.isMinionSummoned) {
+            println("Enemy's turn!")
+            println()
+
+            val attackedHero = opponent.random()
+            val attack = listOfAllMinionAttacks.random()
+            val attackIndex: Int = listOfAllMinionAttacks.indexOf(attack)
+            val damageDone = allMinionSkills.values.elementAt(allMinionSkills.keys.indexOf(attack)).random()
+            println("'${attackedHero.name}' has been attacked with '${allMinionSkills.keys.elementAt(attackIndex)}!")
+            println("'${attackedHero.name}' received $damageDone damage!")
+            attackedHero.playerGetsDamage(lostHealth = damageDone)
+            if (attackedHero.isCharDead) {
+                opponent.remove(attackedHero)
+            }
+        }
+
 
     }
-
-
-
 }

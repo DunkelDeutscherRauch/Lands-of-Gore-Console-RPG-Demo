@@ -1,9 +1,13 @@
 import ANSI.*
 
-fun fight(enemy: MutableList<Enemy>, hero: MutableList<Hero>, inventory: MutableList<Potion> ) {
-    //war1.attackEnemy(enemyList, heroList, inventory)
-    sorc1.attackEnemy(enemyList, heroList, inventory)
-    hunt1.attackEnemy(enemyList,heroList, inventory)
+fun fight(enemy: MutableList<Enemy>, hero: MutableList<Hero>, inventory: MutableList<Potion>) {
+    for (fighter in hero) {
+        if (!boss.isEnemyDead) {
+            fighter.attackEnemy(enemyList, heroList, inventory)
+        } else {
+            break
+        }
+    }
 
     if (boss.healthPoints <= 625 && !boss.isMinionSummoned) {
         boss.summon(boss.minion, enemyList)
@@ -24,10 +28,12 @@ fun fight(enemy: MutableList<Enemy>, hero: MutableList<Hero>, inventory: Mutable
     boss.minion.attackHero(heroList)
 }
 
-fun intro () {
+fun intro() {
     println()
-    println("This is pre-Alpha footage an can contain bugs, errors, exceptions, useless code fragments and all the cool" +
-            " and funny stuff, which will get on your nerves!")
+    println(
+        "This is pre-Alpha footage an can contain bugs, errors, exceptions, useless code fragments and all the cool" +
+                " and funny stuff, which will get on your nerves!"
+    )
     println()
 
     Thread.sleep(2500)
@@ -52,7 +58,8 @@ fun intro () {
 
     Thread.sleep(2500)
 
-    println(""" 
+    println(
+        """ 
         /^v^\           /^v^\
                                   
                 /^v^\   
@@ -69,7 +76,8 @@ fun intro () {
                                                                                           /^v^\           /^v^\                                                                         
                                                                                                                   
                                                                                                   /^v^\                                                                                            
-        """)
+        """
+    )
 
     println()
 
@@ -77,6 +85,6 @@ fun intro () {
 
 }
 
-fun outro () {
+fun outro() {
 
 }

@@ -97,8 +97,11 @@ fun intro() {
     )
 
     println()
-
     Thread.sleep(5000)
+
+    println("Prepare for battle heroes! '${boss.name}' rises from the dark tides of the swamp!")
+    println()
+    Thread.sleep(2500)
 
 }
 

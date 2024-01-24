@@ -96,11 +96,13 @@ class Ranger(
                         "You attack '${choosenEnemy.name}' with " +
                                 "'${allCharSkills.keys.elementAt(attack - 1)}'!"
                     )
+                    Thread.sleep(500)
                     println("'${choosenEnemy.name}' receive $damageDoneSingle1 damage!")
                     Thread.sleep(500)
                     println("'${choosenEnemy.name}' receive $damageDoneSingle2 damage!")
                     Thread.sleep(500)
                     println("'${choosenEnemy.name}' receive $damageDoneSingle3 damage!")
+                    Thread.sleep(500)
                     println(
                         "You hit your enemy with three arrows. So your enemy " +
                                 "receive a total damage of $damageDoneFinal!"

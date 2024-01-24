@@ -104,6 +104,37 @@ fun intro() {
  **/
 fun outro() {
 
+    Thread.sleep(2500)
+    println()
+    println("Thank you for playing! Hope you enjoyed it!")
+    println()
+    Thread.sleep(2500)
+
+    println("Special thanks to:")
+    println()
+    Thread.sleep(1750)
+
+    println("Juri Huhn -> for his ideas, support and for the cool for-loop with the iterator!")
+    Thread.sleep(750)
+    println("Jan Morgenweck -> for his support!")
+    Thread.sleep(750)
+    println("Kathleen Conrad -> for her support and for throwing me out of bed every day! ;P")
+    Thread.sleep(750)
+    println("The guys from the tutor team for their support!")
+    Thread.sleep(750)
+    println("All testers who tested my little program!")
+    Thread.sleep(750)
+    println("Bekir Kus -> as a source of inspiration!")
+    println("https://github.com/M3taWolf/GoldenSyntax.RolePlayGame")
+    println()
+    Thread.sleep(2500)
+
+    println("Forged with passion by: \"so nem Dude\"!")
+    println()
+    Thread.sleep(2500)
+
+    println("\"It just works!\" - Todd Howard, Game Director and Executive Producer für Bethesda Game Studios")
+
 }
 
 /**

@@ -11,14 +11,7 @@ import ANSI.*
  * @see Potion
  * @see fightloop
  **/
-fun fight(enemy: MutableList<Enemy>,hero: MutableList<Hero>, inventory: MutableList<Potion>) {
-    for (fighter in hero) {
-        if (!boss.isEnemyDead || !boss.minion.isEnemyDead) {
-            fighter.attackEnemy(enemyList, heroList, inventory)
-        } else {
-            break
-        }
-    }
+fun fight(enemy: MutableList<Enemy>, hero: MutableList<Hero>, inventory: MutableList<Potion>) {
 
     if (boss.healthPoints <= 625 && !boss.isMinionSummoned) {
         boss.summon(boss.minion, enemyList)
@@ -36,7 +29,17 @@ fun fight(enemy: MutableList<Enemy>,hero: MutableList<Hero>, inventory: MutableL
     } else {
         boss.attackHero(heroList, enemyList)
     }
+
+    for (fighter in hero) {
+        if (!boss.isEnemyDead || !boss.minion.isEnemyDead) {
+            fighter.attackEnemy(enemyList, heroList, inventory)
+        } else {
+            break
+        }
+    }
+
     boss.minion.attackHero(heroList, enemyList)
+
 }
 
 /**

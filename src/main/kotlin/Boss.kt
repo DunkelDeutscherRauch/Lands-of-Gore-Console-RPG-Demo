@@ -8,10 +8,10 @@ class Boss(isEnemyDead: Boolean = false) : Enemy(name = "Mistress of the Swamp",
 
     var minion = Minion()
     var isMinionSummoned = false
-    private var bossAttackOne: Int = 50
-    private var bossAttackTwo: Int = 75
-    private var bossAttackThree: Int = 100
-    private var bossAttackFour: Int = 75
+    private var bossAttackOne: Int = 75
+    private var bossAttackTwo: Int = 100
+    private var bossAttackThree: Int = 125
+    private var bossAttackFour: Int = 100
     private var bossAttackFive: Int = 0
     private var raisedDamage: Int = 0
 

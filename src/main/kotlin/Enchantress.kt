@@ -138,7 +138,7 @@ class Enchantress(
                     Thread.sleep(2500)
                     for (i in opponent) {
                         val damageDone: Int = allCharSkills.values.elementAt(attack - 1).random()
-                        println("${i.name} receive $damageDone damage!")
+                        println("'${i.name}' receive $damageDone damage!")
                         i.enemyGetsDamage(lostHealth = damageDone)
                     }
                     val iterator = enemyList.iterator()

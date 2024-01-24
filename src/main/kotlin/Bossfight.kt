@@ -17,7 +17,7 @@ fun main() {
 
     //intro()
     fightloop()
-    //outro()
+    outro()
 
 }
 

@@ -70,15 +70,15 @@ class Swordmaster(
                     println("'${this.name}' screams loudly: \"WOOOOAAAAAAHHHH!!!\"")
                     for (i in hero) {
                         i.armor += 25
-                        println("${i.name}`s armor increases by 25!")
-                        println("${i.name} has now ${i.armor}!")
+                        println("'${i.name}'`s armor increases by 25!")
+                        println("'${i.name}' has now ${i.armor}!")
                     }
                     println()
                     check = false
                 } else if (attack == 4) {
                     println("\nWhich enemy do you want to attack?\n")
                     for (i in opponent) {
-                        println("Type ${opponent.indexOf(i) + 1} for ${i.name}")
+                        println("Type ${opponent.indexOf(i) + 1} for '${i.name}'")
                     }
                     println()
                     print("Input: ")
@@ -107,7 +107,7 @@ class Swordmaster(
                     println("\nWhich potion do you want to use?\n")
                     if (inventory.isNotEmpty()) {
                         for (i in inventory) {
-                            println("Type ${inventory.indexOf(i) + 1} for ${i.name} - ${i.description}")
+                            println("Type ${inventory.indexOf(i) + 1} for '${i.name}' - ${i.description}")
                         }
                         println()
                         print("Input: ")

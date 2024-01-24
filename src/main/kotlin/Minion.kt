@@ -34,7 +34,7 @@ class Minion(isEnemyDead: Boolean = false) : Enemy(name = "Ciórdan", healthPoin
             val attack = listOfAllMinionAttacks.random()
             val attackIndex: Int = listOfAllMinionAttacks.indexOf(attack)
             val damageDone = allMinionSkills.values.elementAt(allMinionSkills.keys.indexOf(attack)).random()
-            println("'${attackedHero.name}' has been attacked with '${allMinionSkills.keys.elementAt(attackIndex)}!")
+            println("'${attackedHero.name}' has been attacked with '${allMinionSkills.keys.elementAt(attackIndex)}'!")
             println("'${attackedHero.name}' receive $damageDone damage!")
             attackedHero.playerGetsDamage(lostHealth = damageDone)
             if (attackedHero.isCharDead) {

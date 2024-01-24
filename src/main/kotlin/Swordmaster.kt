@@ -1,3 +1,7 @@
+/**
+ * daughter of class Hero
+ * @see Hero
+ */
 class Swordmaster(
     isCharDead: Boolean = false
 ) : Hero(name = "Anduin", healthPoints = 500, armor = 50, isCharDead) {

@@ -1,3 +1,7 @@
+/**
+ * daughter of class Hero
+ * @see Hero
+ */
 class Ranger(
     isCharDead: Boolean = false
 ) : Hero(name = "Nathanos", healthPoints = 375, armor = 25, isCharDead) {

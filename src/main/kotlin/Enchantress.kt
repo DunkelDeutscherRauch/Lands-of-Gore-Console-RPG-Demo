@@ -1,3 +1,7 @@
+/**
+ * daughter of class Hero
+ * @see Hero
+ */
 class Enchantress(
     isCharDead: Boolean = false
 ) : Hero(name = "Leah", healthPoints = 250, armor = 0, isCharDead) {

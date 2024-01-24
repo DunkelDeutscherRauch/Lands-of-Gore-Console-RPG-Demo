@@ -1,6 +1,7 @@
-import ANSI.red
-import ANSI.reset
-
+/**
+ * daughter of class Enemy
+ * @see Enemy
+ **/
 class Minion(isEnemyDead: Boolean = false) : Enemy(name = "Ciórdan", healthPoints = 625, isEnemyDead) {
 
     override val maxHealthPoints: Int = healthPoints
@@ -23,7 +24,6 @@ class Minion(isEnemyDead: Boolean = false) : Enemy(name = "Ciórdan", healthPoin
         "Unholy Thorny Vine",
         "Broken Earth"
     )
-
 
     override fun attackHero(opponent: MutableList<Hero>, enemy: MutableList<Enemy>) {
         if (!isEnemyDead && boss.isMinionSummoned) {

@@ -1,8 +1,16 @@
+/**
+ * independent class for creating potions
+ * @constructor name, amount, description
+ **/
 class Potion(val name: String, amount: Int, var description: String = "Heals $amount HP") {
 
     private var amountOfPotion: Int = amount
 
-
+    /**
+     * function for using a potion, calculates the healing amount
+     * is used in the 'attackEnemy' function
+     * @param hero equals the choosen hero
+     **/
     fun usePotion(hero: Hero) {
         println("'${hero.name}' uses an '${this.name}'!")
         val healAmount: Int = this.amountOfPotion

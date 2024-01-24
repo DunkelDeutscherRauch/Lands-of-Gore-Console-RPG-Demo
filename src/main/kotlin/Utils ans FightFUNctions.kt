@@ -1,5 +1,16 @@
 import ANSI.*
 
+/**
+ * includes the combat sequence
+ * is looped in the 'fightloop' function
+ * @param enemy a mutable list of enemy´s with the datatype Enemy
+ * @param hero a mutable list of heroes with the datatype Hero
+ * @param inventory a mutable list of potions with the datatype Potion
+ * @see Hero
+ * @see Enemy
+ * @see Potion
+ * @see fightloop
+ **/
 fun fight(enemy: MutableList<Enemy>,hero: MutableList<Hero>, inventory: MutableList<Potion>) {
     for (fighter in hero) {
         if (!boss.isEnemyDead || !boss.minion.isEnemyDead) {
@@ -28,6 +39,9 @@ fun fight(enemy: MutableList<Enemy>,hero: MutableList<Hero>, inventory: MutableL
     boss.minion.attackHero(heroList, enemyList)
 }
 
+/**
+ * just contains the into
+ **/
 fun intro() {
     println()
     println(
@@ -85,10 +99,17 @@ fun intro() {
 
 }
 
+/**
+ * just contains the outro
+ **/
 fun outro() {
 
 }
 
+/**
+ * loops the 'fight' function and checks whether the heroes or the enemy´s won
+ * @see fight
+ **/
 fun fightloop() {
     while (enemyList.isNotEmpty() && heroList.isNotEmpty()) {
 

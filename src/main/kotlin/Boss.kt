@@ -1,3 +1,7 @@
+/**
+ * daughter of class Enemy
+ * @see Enemy
+ **/
 class Boss(isEnemyDead: Boolean = false) : Enemy(name = "Mistress of the Swamp", healthPoints = 1250, isEnemyDead) {
 
     override val maxHealthPoints: Int = healthPoints
@@ -88,6 +92,12 @@ class Boss(isEnemyDead: Boolean = false) : Enemy(name = "Mistress of the Swamp",
         }
     }
 
+    /**
+     * summons the minion
+     * @param minion an instance of the class Minion
+     * @param enemyList a mutable list of enemy´s with the datatype Enemy
+     * @see Minion
+     **/
     fun summon(minion: Minion, enemyList: MutableList<Enemy>) {
         enemyList.add(minion)
         this.isMinionSummoned = true

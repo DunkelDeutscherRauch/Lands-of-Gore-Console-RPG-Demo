@@ -14,7 +14,7 @@ class Ranger(
     private var attackFour: IntRange = (25..50)
 
 
-    var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(
+    private var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(
         "Axe Strike" to attackOne,
         "Aimed Shot" to attackTwo,
         "Multishot" to attackThree,

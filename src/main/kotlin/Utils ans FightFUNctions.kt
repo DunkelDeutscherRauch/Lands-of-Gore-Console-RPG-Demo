@@ -48,7 +48,7 @@ fun fight(enemy: MutableList<Enemy>, hero: MutableList<Hero>, inventory: Mutable
 fun intro() {
     println()
     println(
-        "This is pre-Alpha footage an can contain bugs, errors, exceptions, useless code fragments and all the cool" +
+        "This is pre-Alpha footage and can contain bugs, errors, exceptions, useless code fragments and all the cool" +
                 " and funny stuff, which will get on your nerves!"
     )
     println()
@@ -60,7 +60,7 @@ fun intro() {
 
     Thread.sleep(2500)
 
-    println("This is a classic text-RPG. Three heros, a swamp and a evil witch. You may wonder: \"Dude, what do i have to do?\"")
+    println("This is a classic text-RPG. Three heroes, a swamp and a evil witch. You may wonder: \"Dude, what do i have to do?\"")
     println()
 
     Thread.sleep(2500)
@@ -139,7 +139,7 @@ fun outro() {
     println()
     Thread.sleep(2500)
 
-    println("\"It just works!\" - Todd Howard, Game Director and Executive Producer für Bethesda Game Studios")
+    println("\"It just works!\" - Todd Howard, Game Director and Executive Producer for Bethesda Game Studios")
 
 }
 

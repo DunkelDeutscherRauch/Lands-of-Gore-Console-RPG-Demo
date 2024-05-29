@@ -14,7 +14,7 @@ class Swordmaster(
     private var attackFour: IntRange = (60..120)
 
 
-    var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(
+    private var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(
         "Pommel Strike" to attackOne,
         "Sword Strike" to attackTwo,
         "Scream of Armored Soul" to attackThree,

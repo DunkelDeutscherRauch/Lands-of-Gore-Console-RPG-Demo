@@ -15,7 +15,7 @@ class Enchantress(
     private var attackFive: IntRange = (325..325)
 
 
-    var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(
+    private var allCharSkills: MutableMap<String, IntRange> = mutableMapOf(
         "Oak Stuff" to attackOne,
         "Arcane Missiles" to attackTwo,
         "Firebolt" to attackThree,
